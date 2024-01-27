@@ -1,0 +1,103 @@
+import Foundation
+
+// Define the token types
+enum TokenType {
+    case variable(String)
+    case operatorToken(OperatorType)
+    case constant(Bool)
+    case openParenthesis
+    case closeParenthesis
+}
+
+// Define the operator types
+enum OperatorType: String {
+    case not = "¬"
+    case and = "∧"
+    case or = "∨"
+    case xor = "⊕"
+    case imply = "→"
+    case equal = "="
+    case notEqual = "≠"
+}
+
+// Token structure to hold token type and value
+struct Token {
+    let type: TokenType
+}
+
+// Node structure for the parse tree
+indirect enum Node {
+    case variable(String)
+    case operatorNode(OperatorType, Node, Node)
+    case constant(Bool)
+}
+
+// Tokenize the input expression
+func tokenize(expression: String) throws -> [Token] {
+    // Implementation of the tokenizer goes here
+    // Example implementation:
+    return []
+}
+
+// Recursive descent parser to build the parse tree
+func parse(tokens: inout [Token]) throws -> Node {
+    // Implementation of the parser goes here
+    // Example implementation:
+    return .constant(false) // or any default value
+}
+
+// Function to evaluate the expression represented by the parse tree
+func evaluate(node: Node, variableValues: [String: Bool]) -> Bool {
+    // Implementation of the evaluator goes here
+    // Example implementation:
+    return false // or any default value
+}
+
+// Generate and print the truth table for the given variables
+func generateTruthTable(variables: Set<String>, expression: String) throws {
+    // Tokenize the expression
+    var tokens = try tokenize(expression: expression)
+
+    // Build the parse tree
+    let parseTree = try parse(tokens: &tokens)
+
+    // Print the header of the truth table
+    print(variables.sorted().joined(separator: "\t") + "\tResult")
+
+    // Generate all possible combinations of truth values and evaluate
+    for i in 0..<(1 << variables.count) {
+        var variableValues = [String: Bool]()
+        for (index, variable) in variables.sorted().enumerated() {
+            variableValues[variable] = (i & (1 << index)) != 0
+        }
+
+        // Evaluate the expression for the current combination
+        let result = evaluate(node: parseTree, variableValues: variableValues)
+
+        // Print the current row of the truth table
+        let variableString = variables.sorted().map { variableValues[$0]! ? "1" : "0" }.joined(separator: "\t")
+        print("\(variableString)\t\(result)")
+    }
+}
+
+// Main program
+func main() {
+    print("Enter a boolean expression:")
+    if let expression = readLine() {
+        do {
+            let variables = Set(try tokenize(expression: expression).compactMap { token in
+                if case .variable(let variable) = token.type {
+                    return variable
+                }
+                return nil
+            })
+
+            try generateTruthTable(variables: variables, expression: expression)
+        } catch {
+            print("Error: \(error)")
+        }
+    }
+}
+
+// Run the main program
+main()
