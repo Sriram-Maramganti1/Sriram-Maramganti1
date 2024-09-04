@@ -1,0 +1,24 @@
+gyattLevelChecker = int(input("How many episodes of Skibidi Toilet have you watched: "))
+
+if gyattLevelChecker < 7:
+    print("You have a level 1 gyatt")
+elif gyattLevelChecker < 14:
+    print("You have a level 2 gyatt")
+elif gyattLevelChecker < 21:
+    print("You have a level 3 gyatt")
+elif gyattLevelChecker < 28:
+    print("You have a level 4 gyatt")
+elif gyattLevelChecker < 35:
+    print("You have a level 5 gyatt")
+elif gyattLevelChecker < 42:
+    print("You have a level 6 gyatt")
+elif gyattLevelChecker < 49:
+    print("You have a level 7 gyatt")
+elif gyattLevelChecker < 56:
+    print("You have a level 8 gyatt")
+elif gyattLevelChecker < 63:
+    print("You have a level 9 gyatt")
+elif gyattLevelChecker < 70:
+    print("You have a level 10 gyatt")
+elif gyattLevelChecker > 72:
+    print("You have a level 100 gyatt")
