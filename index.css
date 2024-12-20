@@ -1,7 +1,3 @@
-body {
-  background-color: black;
-}
-
 h1 {
   color: white;
   text-align: center;
@@ -10,4 +6,17 @@ h1 {
 p {
   font-family: verdana;
   font-size: 20px;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+.container {
+  width: 100%;
+  height: 100vh;
+  background-color: #313131;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.171) 2px, transparent 0);
+  background-size: 30px 30px;
+  background-position: -5px -5px;
 }
