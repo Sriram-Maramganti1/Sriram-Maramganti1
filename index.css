@@ -1,85 +1,11 @@
-h1 {
-  color: white;
-  text-align: center;
-}
-
-p {
-  font-family: verdana;
-  font-size: 20px;
-}
-
+/* Global Background Styling */
 html, body {
+  width: 100%;
   height: 100%;
   margin: 0;
-}
-.container {
-  width: 100vw;
-  height: 100vh;
-  position: relative;
-  --s: 100px; 
-  --c1: #f8b195;
-  --c2: #355c7d;
-  z-index: 0;
-
-  --_g: var(--c2) 4% 14%, var(--c1) 14% 24%, var(--c2) 22% 34%,
-    var(--c1) 34% 44%, var(--c2) 44% 56%, var(--c1) 56% 66%, var(--c2) 66% 76%,
-    var(--c1) 76% 86%, var(--c2) 86% 96%;
-  background: radial-gradient(
-      100% 100% at 100% 0,
-      var(--c1) 4%,
-      var(--_g),
-      #0008 96%,
-      #0000
-    ),
-    radial-gradient(
-        100% 100% at 0 100%,
-        #0000,
-        #0008 4%,
-        var(--_g),
-        var(--c1) 96%
-      )
-      var(--c1);
-  background-size: var(--s) var(--s);
-}
-
-/* MacOS Window Styling */
-.macos-window {
-  z-index: 1;
-  width: 80%;
-  height: 70%;
-  max-width: 800px;
-  max-height: 600px;
-  background-color: #202020; /* Dark mode background */
-  border-radius: 16px; /* Rounded corners */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Shadow for macOS effect */
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); /* Center the window */
-  overflow: hidden;
-}
-
-/* Window Header (title bar) */
-.window-header {
-  height: 40px;
-  background: #2c2c2c;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 16px;
-  color: white;
-  font-weight: bold;
-  border-top-left-radius: 16px;
-  border-top-right-radius: 16px;
-}
-
-.window-title {
-  font-size: 16px;
-}
-
-/* Window Content */
-.window-content {
-  padding: 20px;
-  color: white;
-  overflow-y: auto;
+  padding: 0;
+  background-color: #313131; /* Dark background */
+  background-image: radial-gradient(rgba(255, 255, 255, 0.171) 2px, transparent 0); /* Subtle radial pattern */
+  background-size: 30px 30px;
+  background-position: -5px -5px;
 }
